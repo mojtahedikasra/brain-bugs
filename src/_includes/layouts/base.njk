@@ -7,6 +7,7 @@
   <meta name="description" content="{{ description or 'Explore the hidden psychological traps, biases, and syndromes that hijack your thinking.' }}">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -73,6 +74,13 @@
     });
   }, { threshold: 0.1 });
   revealElements.forEach(el => revealObserver.observe(el));
+</script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); }
+    });
+  }
 </script>
 </body>
 </html>
