@@ -1,0 +1,13 @@
+{
+  "name": "brainbugs",
+  "version": "1.0.0",
+  "description": "Brain Bugs - Why Smart People Make Dumb Decisions",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it": "^14.0.0"
+  }
+}

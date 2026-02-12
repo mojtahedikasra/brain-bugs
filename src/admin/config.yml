@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "A 1-2 sentence teaser shown on the homepage card." }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "Kasra" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Bias", value: "bias" }
+          - { label: "Syndrome", value: "syndrome" }
+          - { label: "Effect", value: "effect" }
+          - { label: "Trap", value: "trap" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk" }
