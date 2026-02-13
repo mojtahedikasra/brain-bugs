@@ -541,48 +541,6 @@ section { padding: 6rem 3rem; }
   z-index: 1;
 }
 
-.about-image-placeholder svg {
-  width: 80px; height: 80px;
-  opacity: 0.3;
-  position: relative;
-  z-index: 1;
-}
-
-.about-image-placeholder span {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--text-dim);
-  position: relative;
-  z-index: 1;
-}
-
-.about-accent-box {
-  position: absolute;
-  bottom: -20px; right: -20px;
-  width: 140px;
-  padding: 1rem;
-  background: var(--accent-green);
-  border-radius: 10px;
-  z-index: 2;
-}
-
-.about-accent-box span {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 1.8rem;
-  color: var(--bg-deep);
-  display: block;
-  line-height: 1.1;
-}
-
-.about-accent-box small {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: rgba(6, 6, 12, 0.6);
-}
-
 .about-text h3 {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
@@ -950,4 +908,72 @@ footer {
   .section-title { font-size: 1.8rem; }
   .hero-ctas { flex-direction: column; }
   .btn { width: 100%; justify-content: center; }
+}
+
+/* ========== COMPACT ABOUT (Homepage) ========== */
+.about-layout-compact {
+  align-items: start;
+}
+
+.about-layout-compact .about-image-placeholder {
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+}
+
+.about-layout-compact .about-text p {
+  margin-bottom: 1.5rem;
+}
+
+/* ========== ABOUT PAGE (Full Bio) ========== */
+.about-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 3rem 2rem;
+}
+
+.about-page-photo {
+  max-width: 280px;
+  margin: 0 auto 3rem;
+}
+
+.about-page-photo img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-page-content h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  color: var(--accent-green);
+}
+
+.about-page-content p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.about-page-content strong {
+  color: var(--text-primary);
+}
+
+.about-mission {
+  font-size: 1.15rem !important;
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  border-left: 3px solid var(--accent-green);
+  padding-left: 1.2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .about-page { padding: 3rem 1.5rem 2rem; }
+  .about-page-photo { max-width: 200px; }
 }
