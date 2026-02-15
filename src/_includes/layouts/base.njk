@@ -14,7 +14,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }} — Brain Bugs</title>
-  <meta name="description" content="{{ description or 'Explore the hidden psychological traps, biases, and syndromes that hijack your thinking.' }}">
+  <meta name="description" content="{{ description or 'Brain Bugs explores the hidden psychological traps, cognitive biases, and mental models that shape leadership, business decisions, self-improvement, and human behavior.' }}">
+  <meta name="keywords" content="cognitive bias, psychology, leadership, business decision-making, mental models, self-improvement, behavioral economics, human behavior, AI and decision-making, executive leadership, organizational psychology, self-help, personal development">
+  <meta name="author" content="Kasra Mojtahedi">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://brainbugs.net{{ page.url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Brain Bugs">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:title" content="{{ title }} — Brain Bugs">
+  <meta property="og:description" content="{{ description or 'Brain Bugs explores the hidden psychological traps, cognitive biases, and mental models that shape leadership, business decisions, self-improvement, and human behavior.' }}">
+  <meta property="og:url" content="https://brainbugs.net{{ page.url }}">
+  <meta property="og:image" content="{{ ogImage or 'https://brainbugs.net/images/kasra.jpg' }}">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }} — Brain Bugs">
+  <meta name="twitter:description" content="{{ description or 'Brain Bugs explores the hidden psychological traps, cognitive biases, and mental models that shape leadership, business decisions, self-improvement, and human behavior.' }}">
+  <meta name="twitter:image" content="{{ ogImage or 'https://brainbugs.net/images/kasra.jpg' }}">
+
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/atom+xml" title="Brain Bugs Feed" href="/feed.xml">
+
+  <!-- JSON-LD Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Brain Bugs",
+    "url": "https://brainbugs.net",
+    "logo": "https://brainbugs.net/images/kasra.jpg",
+    "description": "Brain Bugs decodes the hidden psychological traps, cognitive biases, and behavioral patterns that affect leadership, business strategy, self-improvement, and everyday decision-making. Founded by Kasra Mojtahedi, a senior business advisor with 15+ years in enterprise consulting.",
+    "founder": {
+      "@type": "Person",
+      "name": "Kasra Mojtahedi",
+      "jobTitle": "Partner & Senior Business Advisor",
+      "description": "CPA, technologist, venture investor, and senior advisor specializing in organizational psychology, leadership decision-making, and behavioral economics."
+    },
+    "knowsAbout": [
+      "Cognitive Biases",
+      "Behavioral Economics",
+      "Leadership Psychology",
+      "Business Decision-Making",
+      "Mental Models",
+      "Organizational Psychology",
+      "Self-Improvement",
+      "Human Behavior",
+      "AI and Human Judgment",
+      "Executive Coaching"
+    ]
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
@@ -46,9 +101,9 @@
     <span>🧠</span> Brain Bugs © 2025
   </div>
   <div class="footer-right">
-    <a href="#">Twitter/X</a>
-    <a href="#">YouTube</a>
-    <a href="#">LinkedIn</a>
+    <a href="#" rel="noopener noreferrer">Twitter/X</a>
+    <a href="#" rel="noopener noreferrer">YouTube</a>
+    <a href="#" rel="noopener noreferrer">LinkedIn</a>
   </div>
 </footer>
 
