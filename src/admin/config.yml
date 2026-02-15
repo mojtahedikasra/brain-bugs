@@ -14,6 +14,9 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Excerpt", name: "excerpt", widget: "text", hint: "A 1-2 sentence teaser shown on the homepage card." }
+      - { label: "Meta Description", name: "description", widget: "text", required: false, hint: "Optional override for search engine results (max 160 chars). Falls back to excerpt if empty." }
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false, hint: "Used for social sharing previews (OG image). Recommended: 1200x630px." }
+      - { label: "Image Alt Text", name: "imageAlt", widget: "string", required: false, hint: "Describes the featured image for accessibility and SEO." }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Author", name: "author", widget: "string", default: "Kasra" }
       - label: "Category"
@@ -24,5 +27,24 @@ collections:
           - { label: "Syndrome", value: "syndrome" }
           - { label: "Effect", value: "effect" }
           - { label: "Trap", value: "trap" }
+      - label: "Topics"
+        name: "topics"
+        widget: "select"
+        multiple: true
+        required: false
+        hint: "Select all relevant topics for SEO tagging."
+        options:
+          - { label: "Leadership", value: "leadership" }
+          - { label: "Business Strategy", value: "business-strategy" }
+          - { label: "Decision-Making", value: "decision-making" }
+          - { label: "Psychology", value: "psychology" }
+          - { label: "Self-Improvement", value: "self-improvement" }
+          - { label: "Behavioral Economics", value: "behavioral-economics" }
+          - { label: "AI & Human Judgment", value: "ai-human-judgment" }
+          - { label: "Workplace & Teams", value: "workplace-teams" }
+          - { label: "Mental Models", value: "mental-models" }
+          - { label: "Relationships", value: "relationships" }
+          - { label: "Personal Finance", value: "personal-finance" }
+          - { label: "Organizational Psychology", value: "organizational-psychology" }
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk" }
