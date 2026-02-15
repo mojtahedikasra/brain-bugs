@@ -42,7 +42,7 @@ layout: layouts/base.njk
     <div class="newsletter-icon">🐛</div>
     <h2 class="newsletter-title reveal">Enjoyed this? Debug your thinking.</h2>
     <p class="newsletter-desc reveal">Get new brain bug breakdowns, stories, and mental model antidotes — delivered to your inbox.</p>
-    <form class="newsletter-form reveal" action="https://app.kit.com/forms/9090233/subscriptions" method="post" data-sv-form="9090233" onsubmit="handleSubscribe(event)">
+    <form class="newsletter-form reveal" action="https://api.convertkit.com/v3/forms/9090233/subscribe" method="post" data-sv-form="9090233" onsubmit="handleSubscribe(event)">
       <input type="email" name="email_address" placeholder="your@email.com" required>
       <button type="submit">Subscribe</button>
     </form>
@@ -64,7 +64,7 @@ function handleSubscribe(e) {
   fetch(form.action, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email_address: email })
+    body: JSON.stringify({ api_key: 'SdZUv0f5wphPHqZFYBehkA', email: email })
   })
   .then(response => {
     if (response.ok || response.status === 200 || response.status === 302) {
