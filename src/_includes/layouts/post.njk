@@ -42,8 +42,8 @@ layout: layouts/base.njk
     <div class="newsletter-icon">🐛</div>
     <h2 class="newsletter-title reveal">Enjoyed this? Debug your thinking.</h2>
     <p class="newsletter-desc reveal">Get new brain bug breakdowns, stories, and mental model antidotes — delivered to your inbox.</p>
-    <form class="newsletter-form reveal" onsubmit="handleSubscribe(event)">
-      <input type="email" placeholder="your@email.com" required>
+    <form class="newsletter-form reveal" action="https://app.kit.com/forms/9090233/subscriptions" method="post" data-sv-form="9090233" onsubmit="handleSubscribe(event)">
+      <input type="email" name="email_address" placeholder="your@email.com" required>
       <button type="submit">Subscribe</button>
     </form>
     <p class="newsletter-privacy reveal">No spam. Unsubscribe anytime.</p>
@@ -53,14 +53,50 @@ layout: layouts/base.njk
 <script>
 function handleSubscribe(e) {
   e.preventDefault();
-  const input = e.target.querySelector('input');
-  const btn = e.target.querySelector('button');
-  btn.textContent = '✓ Subscribed!';
-  btn.style.background = 'var(--accent-cyan)';
-  input.value = '';
-  setTimeout(() => {
-    btn.textContent = 'Subscribe';
-    btn.style.background = 'var(--accent-green)';
-  }, 3000);
+  const form = e.target;
+  const input = form.querySelector('input');
+  const btn = form.querySelector('button');
+  const email = input.value;
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch(form.action, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email_address: email })
+  })
+  .then(response => {
+    if (response.ok || response.status === 200 || response.status === 302) {
+      btn.textContent = '✓ Subscribed!';
+      btn.style.background = 'var(--accent-cyan)';
+      input.value = '';
+    } else {
+      btn.textContent = 'Try again';
+      btn.style.background = 'var(--accent-pink)';
+    }
+  })
+  .catch(() => {
+    const iframe = document.createElement('iframe');
+    iframe.name = 'kit-frame';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    form.target = 'kit-frame';
+    form.removeAttribute('onsubmit');
+    form.submit();
+    btn.textContent = '✓ Subscribed!';
+    btn.style.background = 'var(--accent-cyan)';
+    input.value = '';
+    form.setAttribute('onsubmit', 'handleSubscribe(event)');
+    form.removeAttribute('target');
+    setTimeout(() => iframe.remove(), 5000);
+  })
+  .finally(() => {
+    btn.disabled = false;
+    setTimeout(() => {
+      btn.textContent = 'Subscribe';
+      btn.style.background = 'var(--accent-green)';
+    }, 3000);
+  });
 }
 </script>
