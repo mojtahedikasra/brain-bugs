@@ -1,0 +1,30 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Brain Bugs</title>
+  <subtitle>Decoding the hidden psychological traps, cognitive biases, and mental models that shape leadership, business decisions, and human behavior.</subtitle>
+  <link href="https://brainbugs.net/feed.xml" rel="self"/>
+  <link href="https://brainbugs.net/"/>
+  <updated>{{ collections.posts[0].date | isoDate }}</updated>
+  <id>https://brainbugs.net/</id>
+  <author>
+    <name>Kasra Mojtahedi</name>
+  </author>
+  {%- for post in collections.posts %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="https://brainbugs.net{{ post.url }}"/>
+    <id>https://brainbugs.net{{ post.url }}</id>
+    <updated>{{ post.date | isoDate }}</updated>
+    <summary>{{ post.data.excerpt }}</summary>
+    <content type="html">{{ post.templateContent | htmlEncode }}</content>
+    <author>
+      <name>{{ post.data.author or 'Kasra Mojtahedi' }}</name>
+    </author>
+    <category term="{{ post.data.category }}"/>
+  </entry>
+  {%- endfor %}
+</feed>
