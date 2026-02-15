@@ -23,6 +23,25 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("limit", (arr, limit) => arr.slice(0, limit));
 
+  // SEO: ISO date format for sitemaps, feeds, and JSON-LD schema
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    return new Date(dateObj).toISOString();
+  });
+
+  // SEO: Word count for Article schema
+  eleventyConfig.addFilter("wordCount", (content) => {
+    return (content || "").split(/\s+/).length;
+  });
+
+  // SEO: HTML encode for Atom feed content
+  eleventyConfig.addFilter("htmlEncode", (content) => {
+    return (content || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  });
+
   return {
     dir: { input: "src", output: "_site", includes: "_includes" },
     templateFormats: ["njk", "md", "html"],
