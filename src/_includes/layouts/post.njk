@@ -1,6 +1,70 @@
 ---
 layout: layouts/base.njk
+ogType: article
 ---
+
+<!-- JSON-LD Article Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title }}",
+  "description": "{{ excerpt }}",
+  "datePublished": "{{ date | isoDate }}",
+  "dateModified": "{{ date | isoDate }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ author or 'Kasra Mojtahedi' }}",
+    "url": "https://brainbugs.net/about/",
+    "jobTitle": "Partner & Senior Business Advisor"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Brain Bugs",
+    "url": "https://brainbugs.net",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://brainbugs.net/images/kasra.jpg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://brainbugs.net{{ page.url }}"
+  },
+  "image": "{{ featuredImage or 'https://brainbugs.net/images/kasra.jpg' }}",
+  "articleSection": "{{ category }}",
+  "keywords": "{{ category }}, cognitive bias, psychology, leadership, decision-making, mental models, behavioral economics, self-improvement",
+  "wordCount": "{{ content | wordCount }}"
+}
+</script>
+
+<!-- JSON-LD Breadcrumb Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://brainbugs.net/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Articles",
+      "item": "https://brainbugs.net/#articles"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ title }}",
+      "item": "https://brainbugs.net{{ page.url }}"
+    }
+  ]
+}
+</script>
 
 <!-- Article Hero -->
 <section class="article-hero">
